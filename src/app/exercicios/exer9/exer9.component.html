@@ -1,0 +1,115 @@
+<div class="conteiner mt-3">
+<h1 class="text-center">Exercicio 9</h1>
+<div class="container mt-5">
+    <form #login="ngForm" (ngSubmit)="salvar()">
+        <div class="form-group mb-3">
+            <label  class="col-4 mb-2 col-form-label text-center">Nome do Dono</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" 
+              name="cli"
+               [(ngModel)]="user.cliente"
+                required
+                 
+                 #n="ngModel"
+                 [ngClass]="{'border-danger':  n.invalid && n.touched }"
+                 />
+            </div>
+          </div>
+          
+         <p class="text-center col-4"><small class=" alert alert-danger me-5" *ngIf="!n.valid && n.touched"
+             > Nome do dono do pet é obrigatório</small></p> <br>
+         
+                <div class="form-group mb-3">
+          <label  class="col-4 mb-2 col-form-label text-center">CPF</label>
+          <div class="col-sm-4">
+            <input type="number" class="form-control" 
+            name="cpf"
+             [(ngModel)]="user.cpf"
+              required
+               #Cpf="ngModel"
+               [ngClass]="{'border-danger':  notCpf ||  Cpf.invalid && Cpf.touched }" 
+               pattern="^[0-9]{11}$" (keyup)="validaCpf()"
+                />
+          </div>
+        </div>
+        <p class="text-center col-4"><small *ngIf="notCpf "
+            class="alert alert-danger"> CPF requer no minimo 11 numeros</small></p><br>
+       
+        <div class="form-group mb-1">
+          <label class="col-4 mb-2 col-form-label text-center">Email</label>
+          <div class="col-sm-4">
+            <input type="email" class="form-control mb-3" 
+            name="email" 
+            [(ngModel)]="user.email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            #inputEmail="ngModel"
+             required
+             [ngClass]="{'border-danger': notEmail  || !inputEmail.invalid && !inputEmail.dirty}"
+             (keyup)="validaEmail()"/>
+          <p class="text-center "><small *ngIf="(notEmail)"
+             class=" alert alert-danger col-6 "> formato aceito Ex: name@dominio.com</small></p> 
+          </div>
+        </div>
+      
+            <div class="form-group mb-3">
+                <label  class=" col-4 mb-2 col-form-label text-center">Nome do cachorro</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" 
+                  name="dog"
+                   [(ngModel)]="user.pet"
+                    required
+                     #pet="ngModel"
+                     [ngClass]="{'border-danger': pet.invalid && pet.touched }"
+                     />
+                </div>
+              </div>
+            <p class="text-center col-4"> <small *ngIf="!pet.valid && pet.touched"
+                  class=" alert alert-danger"> Nome do animal é obrigatório</small></p> <br>
+                  <div class="form-group  mb-3">
+                    <label  class=" col-4 mb-2 col-form-label text-center">Codigo de identificação do cachorro</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" 
+                      name="id"
+                       [(ngModel)]="user.id"
+                        required
+                         #i="ngModel"
+                         [ngClass]="{'border-danger': i.invalid && i.touched }"
+                         />
+                    </div>
+                  </div>
+                  <p *ngIf="!i.valid && i.touched"
+                      class=" alert alert-danger col-5"><small> Campo Obrigatório Digite um numero para indentificar seu pet</small></p><br>
+                 
+       
+        
+            <button type="submit" class="btn btn-primary ms-5 mb-5 mt-5 col-4 text-center" [disabled]="!login.valid"  data-toggle="modal" data-target="#modalId" >Salvar</button>
+        
+    
+      </form>
+    </div>
+    <div class="modal fade" id="modalId" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body row">
+              <p class="text-danger mx-2">Nome:</p> <p >{{user.cliente | uppercase}}</p></div>
+              <div class="modal-body row">
+                <p class=" text-danger mx-2 ">CPF:</p> <p >{{user.cpf}}</p></div>
+                <div class="modal-body row">
+                  <p class=" text-danger mx-2 ">E-mail:</p> <p >{{user.email}}</p></div>
+                  <div class="modal-body row">
+                    <p class=" text-danger mx-2 ">Nome do Pet:</p> <p >{{user.pet | uppercase}}</p></div>
+                    <div class="modal-body row">
+                      <p class=" text-danger mx-2 ">Nº de Identificação do pet:</p> <p >{{user.id}}</p></div>
+              
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)=" confirmar()">Confirmar</button>
+              <button type="button" class="btn btn-primary"data-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

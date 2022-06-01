@@ -1,0 +1,17 @@
+<div class="conteiner text-center mt-3">
+<h1 >Exercicio 10</h1>
+
+<div class="text-center">
+   <label class="mx-3">Criar Item da Lista</label>
+<input placeholder="Produto" name="inseri"
+[(ngModel)]="cadastrar.produto">
+<button type="submit" class="btn btn-primary mx-4 text-center" (click)=" cadastra()" >Cadastrar</button>
+
+<p *ngIf="!vazio"> Ainda não foi Criado nenhum item na lista </p>
+<ul class="list-group list-group-flush mt-5" *ngIf="vazio">
+    <li  class="list-group-item">Minha Lista</li>
+    <li  class="list-group-item"*ngFor="let item of cadastros">{{item.produto}}</li>
+  </ul>
+        
+</div>
+</div>

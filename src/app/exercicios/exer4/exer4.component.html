@@ -1,0 +1,14 @@
+<div class="conteiner text-center mt-3">
+<h1>Exercicio 4</h1>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 md-5">
+    <div class="col "
+    *ngFor="let item of arrayFotos">
+      <div class="card shadow-sm">
+        <img class="col-md-auto" src={{item.url}} width="90%" height="225">
+        <div class="card-body">
+          <p class="card-text text-center">{{item.description}}</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>

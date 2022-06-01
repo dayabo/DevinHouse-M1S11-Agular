@@ -1,0 +1,20 @@
+<div class="conteiner text-center mt-3">
+<h1>Exercicio 5</h1>
+<div class=" d-flex justify-content-center">
+<div class="card align-self-center mt-5"  >
+    <a (click)="showModal = !showModal">Open Demo Modal</a>
+   </div>
+    
+   <div class="modal" *ngIf="showModal">
+    <div class="modal__content">
+      <h1>Example modal</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error minima
+        libero veniam, modi corrupti doloremque repellendus vitae mollitia. Ipsum
+        voluptatibus ea ab quos molestiae at expedita maiores dolore a corrupti!
+      </p>
+      <a class="modal__close" (click)="showModal = !showModal">&times;</a>
+    </div>
+   </div>
+</div>
+</div>

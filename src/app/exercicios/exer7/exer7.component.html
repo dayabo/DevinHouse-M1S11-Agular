@@ -1,0 +1,34 @@
+<div class="conteiner text-center mt-3">
+<h1>Exercicio 7</h1>
+<div class= "row justify-content-md-center mt-5">
+    <form #form ="ngForm" (submit)="valido()" class="row g-3">
+        <div class="col-auto">
+            <label for="inputPassword2" class="visually-hidden">Nome</label>
+            <input type="text" class="form-control" name="nome" placeholder="Ex:Dayane" [(ngModel)]="user.nome" >
+          </div>
+        <div class="col-auto">
+            <label for="inputPassword2" class="visually-hidden">CPF</label>
+            <input type="number" class="form-control" name="cpf" placeholder="Ex:130007890" [(ngModel)]="user.cpf" required="">
+          </div>
+          <div class="col-auto">
+            <label for="inputPassword2" class="visually-hidden">Dia Do Nascimento</label>
+            <input type="number" class="form-control" max="31" min="1" name="dia" placeholder="Ex:Dayane" [(ngModel)]="user.diaDoNascimento">
+          </div>
+        <div class="col-auto">
+          <label for="inputPassword2" class="visually-hidden">Senha</label>
+          <input type="password" class="form-control"  name="senha" placeholder="Ex:6775544Ab"[(ngModel)]="user.senha" required="">
+        </div>
+        
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary mb-3" [disabled]="!form.valid">Enviar</button>
+        </div>
+      </form>
+    </div>
+    
+    <div class="text-center" *ngIf="enviar" >
+        <h1  class="mt-5">{{user.nome}}</h1><br>
+        <p>{{user.cpf}}</p><br>
+        <p>{{user.diaDoNascimento}}</p><br>
+        <p>{{user.senha}}</p><br>
+    </div>
+</div>

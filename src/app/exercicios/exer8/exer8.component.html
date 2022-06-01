@@ -1,0 +1,38 @@
+<div class="conteiner text-center mt-3">
+<h1>Exercicio 8</h1>
+<nav class="container-xxl bd-gutter flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+    
+
+ 
+
+  
+  <div class="mt-5 mb-5 offcanvas-lg offcanvas-end flex-grow-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel" data-bs-scroll="true">
+    
+
+    <div class="offcanvas-body p-4 pt-0 p-lg-0">
+      <hr class="d-lg-none text-white-50">
+      <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav">
+        <li class="nav-item col-6 col-lg-auto">
+          <a class="nav-link py-2 px-0 px-lg-2"(click)="page ='Petshop'">Petshop</a>
+        </li>
+        <li class="nav-item col-6 col-lg-auto">
+          <a class="nav-link py-2 px-0 px-lg-2"(click)="page ='Home'" >Home</a>
+        </li>
+        <li class="nav-item col-6 col-lg-auto">
+          <a class="nav-link py-2 px-0 px-lg-2" (click)="page ='Precos'">Preços</a>
+        </li>
+        <li class="nav-item col-6 col-lg-auto" >
+          <a class="nav-link py-2 px-0 px-lg-2"(click)="page ='Informacao'">Informações</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div [ngSwitch]="page">
+    <h2 *ngSwitchCase="'Petshop'">Estou na página do Petshop</h2>
+    <h2 *ngSwitchDefault="" >Estou na página da Home</h2>
+    <h2 *ngSwitchCase="'Precos'">Estou na página de Preços</h2>
+    <h2 *ngSwitchCase="'Informacao'">Estou na página de Informações</h2>
+</div>
+</div>
